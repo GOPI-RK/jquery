@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+    .outer
+    {
+     display:flex;
+     flex-wrap: wrap;
+     justify-content: center;
+    }
+
+    .container
+    {
+     width:360px;
+     height:300px;
+     border: 3px solid darkblue;
+     overflow:auto;
+     border-bottom-left-radius:7px ;
+     border-bottom-right-radius:7px ;
+     border-top:none;
+    }
+    .con
+    {
+    border: 3px solid darkblue;
+    width:360px;
+    border-top-left-radius:7px ;
+     border-top-right-radius:7px ;
+    }
+
+    
+   .label
+   {
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: cursive;
+    color:darkblue;
+    margin: 15px 10px;
+    text-align: center;
+
+   }
+   #btn
+   {
+    border-radius: 100%;
+    font-size: 18px;
+    font-family: cursive;
+    color: darkblue;
+    border: solid;
+    background-color: whitesmoke;
+    margin: 5px;
+  
+   }
+   #btn1
+   {
+    border-radius: 100%;
+    font-size: 18px;
+    font-family: cursive;
+    color:red;
+    border: solid;
+    background-color: whitesmoke;
+    margin: 5px;
+  
+   }
+  
+   #items
+   {
+    border-radius: 50px;
+    border: 3px solid darkblue;
+    width: 200px;
+    font-size: 18px;
+    font-family: cursive;
+    color: darkblue;
+    font-weight: 600;
+    padding: 0px 5px;
+    margin: 5px;
+    
+   }
+    
+    #delete
+    {
+    padding: 15px;
+    text-align: left;
+    font-size:25px;
+    color:darkblue;
+    font-weight: 600;
+    font-family: cursive;;
+    }
+    #delete:nth-child(odd)
+    {
+        background: #f1f1f1;
+    }
+    #delete:nth-child(even)
+    {
+        background:#d4d4d4;
+    }
+   
+    #bt
+    {
+    float: right;
+    font-size: 23px;
+    padding: 5px;
+    color: red;
+    background-color: transparent;
+    border: none;
+ 
+   
+    }
+    #o
+    {
+        margin-right: 5px;
+       
+
+    }
+    .box
+    {
+        margin: 15px 15px;
+    }
+    img
+    {
+     transition: all 2s;
+    }
+    img:hover
+    {
+     transform: rotateY(360deg);
+    }
+    img
+    {
+ margin: 0px 95px;
+    }
+  
+    
+    </style>
+</head>
+<body>
+    <div class="outer">
+    <div class="img">
+ 
+        <img src="images/hiclipart.com.png" alt="jquery_logo">
+    <div class="con">
+    <p class="label"><i class="fa fa-list-alt" aria-hidden="true"></i>  My To-Do list</p>
+    <div class="box">
+    <input type="text" id="items" value="" placeholder="Enter  item...">
+    <button id="btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    <button id="btn1"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+    </div>
+    </div>
+    <div class="container"></div>
+    </div>
+    </div>
+
+
+ </body>
+ <script>
+ $(document).ready(function(){
+$("#btn").click(function(){
+var a= $("#items").val();
+if(a===" ")
+{
+alert(" no item !!!")
+}
+else
+{
+$(".container").append("<div id='delete'>"+ a +"<button  id='bt'> <i class='fa fa-times' aria-hidden='true'></i> </button>"+"</div>");
+$("#items").val(" ");
+}
+});
+$(document).on("click", "#bt",function(){
+$(this).parent().remove(); 
+});
+$(document).on("click", "#delete",function(){
+$(this).prepend("<i class='fa fa-check'  id='o' aria-hidden='true'></i>");
+$(this).css({"text-decoration":"line-through","background": "rgb(146, 146, 146)","color":"red"});
+});
+$("#btn1").click(function(){
+$(".container").empty();
+});
+});
+
+
+
+ 
+ 
+ </script>
+</html>
+
